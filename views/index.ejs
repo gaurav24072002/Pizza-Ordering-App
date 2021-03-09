@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizza-Store | <%= title %> </title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../pizza.png">
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <%- include('./header.ejs') %>
+    <h1 class="p-2 mt-5 font-italic">All Pizza Orders</h1>
+    <div class="containers">
+      <div class="mt-5">
+        <% if(orders.length > 0) {%> 
+          <% orders.forEach(order=>{ %>
+              <div style="border-left: 10px solid #555;" class="row mt-4">
+                <div class="col-md-2">
+                  <img src="../pizza.png" alt="" width="160">
+                </div>
+                <div class="col-md-10">
+                  <h5>Name: <% orders.Name %> </h5>
+                  <p>Pizza Order: <% orders.pizza %> </p>
+                  <p>Location: <% orders.location %> </p>
+                  <p>Order Time: <% orders.createdAt %> </p>
+                </div>
+              </div>
+              <hr>
+         <% }) %> 
+        <% } else{ %>
+           <h4 class="text-center p-5">There are no Orders yet as of now :(</h4>
+        <% } %> 
+      </div>
+    </div>
+
+
+
+
+    
+      <%- include('./footer.ejs') %>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
